@@ -5,9 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: 313422618945.dkr.ecr.eu-central-1.amazonaws.com/web-app
   pullPolicy: Always
-  # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
 imagePullSecrets: []
@@ -38,7 +37,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 8081
+  port: 80
 
 
 ingress:
@@ -47,16 +46,16 @@ ingress:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/certificate-arn: ${ssl_arn}
+    alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:eu-central-1:313422618945:certificate/44889812-1753-40b9-8129-0d853551b942"
     alb.ingress.kubernetes.io/tags: Name=appstellar-training-alb-amir, Environment=dev
     alb.ingress.kubernetes.io/group.name: appstellar-training-amir
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
     alb.ingress.kubernetes.io/ssl-redirect: '443'
   hosts:
-    - host: ${api_subdomain}
+    - host: web.amir-pacolli.appstellar.training
       paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
   tls: []
 
 resources: {}
