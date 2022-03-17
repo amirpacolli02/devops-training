@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: 313422618945.dkr.ecr.eu-central-1.amazonaws.com/amir-web-app
   pullPolicy: Always
-  tag: "29dd4d039f7a40823a87223332f95aae0313c060"
+  tag: "3caa6b736319c36888d9a1cea355420521ce40cf"
 
 imagePullSecrets: []
 nameOverride: ""
