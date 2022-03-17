@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-           First React App deployed to AWS EC2
+           First React App deployed to AWS EC2 - Version 2
         </p>
         <a
           className="App-link"
